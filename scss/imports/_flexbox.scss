@@ -1,0 +1,54 @@
+
+
+.image_box_flex_child {
+  width: 100px;  /* Or whatever */
+  height: 100px; /* Or whatever */
+  margin: auto;  /* Magic! */
+  padding: 5px;
+}
+
+.navigation {
+  display: flex;
+  flex-flow: row wrap;
+  /* This aligns items to the end line on main-axis */
+  justify-content: flex-end;
+}
+
+/* Medium screens */
+@media all and (max-width: 800px) {
+  .navigation {
+    /* When on medium sized screens, we center it by evenly distributing empty space around items */
+    justify-content: space-around;
+  }
+}
+
+
+.images_flex_container {
+  display: flex;
+  flex-flow: row wrap;
+  /* This aligns items to the end line on main-axis */
+  background-color: $dark-gray;
+  justify-content: flex-end;
+}
+
+/* Medium screens */
+@media all and (max-width: 800px) {
+  .images_flex_container {
+    /* When on medium sized screens, we center it by evenly distributing empty space around items */
+    justify-content: space-around;
+  }
+}
+
+
+.images_flex_column {
+
+	 display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+padding-left: 10px;
+  flex-flow: column wrap;
+  /* This aligns items to the end line on main-axis */
+
+}
+
+
