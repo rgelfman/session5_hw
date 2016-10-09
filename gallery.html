@@ -4,6 +4,66 @@
 	<meta charset="UTF-8">
 	<title>Brooklyn Eats: Matsu</title>
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<script>
+
+window.onLoad=function()
+{
+alert();
+	prepareGallery();
+
+
+}
+
+function showPicOne(whichPic) {
+  var source = whichPic.getAttribute("href");
+  console.log(source);
+}
+
+// function showPicOne(whichPic) {
+//   var source = whichPic.getAttribute("href");
+//   var placeholder = document.getElementById("placeholder");
+//   console.log(placeholder);
+// }
+
+// function showPicOne(whichPic) {
+//   var source = whichPic.getAttribute("href");
+//   var placeholder = document.getElementById("placeholder");
+//   placeholder.setAttribute("src",source);
+// }
+
+// function showPicOne(whichPic) {
+//   var source = whichPic.getAttribute("href");
+//   var placeholder = document.getElementById("placeholder");
+//   placeholder.setAttribute("src",source);
+//   var text = whichPic.getAttribute("title");
+//   var description = document.getElementById("description");
+//   description.firstChild.nodeValue=text ;
+//  // console.log(description.childNodes[0].nodeValue); 
+// }
+
+function prepareGallery() {
+  var gallery = document.getElementById("imageGallery");
+  var links = gallery.getElementsByTagName("a");
+  console.log(links.length);
+  for ( var i=0; i < links.length; i++ ) {
+  //  console.log(i);
+    links[i].onclick = function() {
+    showPicOne(this);
+    return false;
+  }
+
+links[0].parentNode.className='active';
+showPicOne(links[0]);
+
+ }
+}
+
+
+
+
+
+
+	</script>
 
 </head>
 <table width="100%">
@@ -27,7 +87,7 @@
 </td>
 </tr>
 </table>
-
+<div id=div_svg>
 
 <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
@@ -43,6 +103,7 @@
 
 </defs>
 </svg>
+</div>
 
 <div id="image_gallery" class="wrapper">
 
@@ -55,6 +116,42 @@ Click to scroll through gallery
 <div>
 <div id=div_image class="wrapper">
 </div>
+
+
+
+
+<a onclick="showPicOne(this); return false;" href="img/sushi-a.jpg" title="Temple by a river">Pagoda</a>
+
+
+
+<body >
+	<div>
+		<h1>Image Gallery</h1>
+		<div id="mainNav">
+			<ul id="imageGallery">
+				<li><a href="img/sushi-a.jpg" title="Temple by a river">Pagoda</a></li>
+				<li><a href="img/sushi-b.jpg" title="Shrine">Bridge</a></li>
+				<li><a href="img/sushi-c.jpg" title="Bamboo">Bamboo</a></li>
+				<li><a href="img/sushi-d.jpg" title="Red stairway">Stairway</a></li>
+			</ul>
+		</div>
+
+		<div id="content">
+			<img id="placeholder" src="img/sushi-a.jpg" alt="Placeholder">
+			<p id="description">Select an image.</p>
+		</div>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
 
 <!-- <table width="100%">
 <tr>

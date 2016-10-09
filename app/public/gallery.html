@@ -1,0 +1,393 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Brooklyn Eats: Matsu</title>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<script>
+
+
+
+// window.onLoad=function()
+// {
+// loadJSON(data);
+//  console.log(data.images.title);
+// 	//prepareGallery();
+
+
+// }
+
+// function showPicOne(whichPic) {
+//   var source = whichPic.getAttribute("href");
+//   console.log(source);
+// }
+
+// function showPicOne(whichPic) {
+//   var source = whichPic.getAttribute("href");
+//   var placeholder = document.getElementById("placeholder");
+//   console.log(placeholder);
+// }
+
+// function showPicOne(whichPic) {
+//   var source = whichPic.getAttribute("href");
+//   var placeholder = document.getElementById("placeholder");
+//   placeholder.setAttribute("src",source);
+// }
+
+// function showPicOne(whichPic) {
+//   var source = whichPic.getAttribute("href");
+//   var placeholder = document.getElementById("placeholder");
+//   placeholder.setAttribute("src",source);
+//   var text = whichPic.getAttribute("title");
+//   var description = document.getElementById("description");
+//   description.firstChild.nodeValue=text ;
+//  // console.log(description.childNodes[0].nodeValue); 
+// }
+
+
+ // function loadJSON(callback) {   
+
+ //    var xobj = new XMLHttpRequest();
+ //        xobj.overrideMimeType("application/json");
+ //    xobj.open('GET', '/data/data.json', true); // Replace 'my_data' with the path to your file
+ //    xobj.onreadystatechange = function () {
+ //          if (xobj.readyState == 4 && xobj.status == "200") {
+ //            // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+ //            callback(xobj.responseText);
+ //          }
+ //    };
+ //    xobj.send(null);  
+
+   
+ // }
+ 
+
+// function init() {
+//  loadJSON(function(response) {
+//   // Parse JSON string into object
+//     var actual_JSON = JSON.parse(response);
+
+
+//  console.log(actual_JSON.images.name);
+
+//  });
+// }
+
+
+
+ 
+// function prepareGallery() 
+
+// {
+
+// var gallery = document.getElementById("div_image");
+// var links = gallery.getElementsByTagName("img");
+
+
+//   // console.log(links.length);
+
+
+
+//   // for ( var i=0; i < links.length; i++ ) {
+
+
+//   //   links[i].onclick = function() {
+//   //   showPicOne(this, links[i]);
+//   //   return false;
+//   // }
+
+// //links[0].parentNode.className='active';
+// //showPicOne(links[0]);
+
+//  //}
+
+
+// }
+
+
+
+function showNext ()
+{
+
+var gallery = document.getElementById("div_image");
+var links = gallery.getElementsByTagName("img");
+
+//console.log(links.length); 
+
+  for ( var i=0; i < links.length; i++ ) 
+
+  {
+ 	// 	console.log(links[i].id); 
+		// console.log(links[i].className); 
+
+
+
+
+   if (links[i].className=="image_active")
+   {
+ 		
+		
+		 var img = document.getElementById(links[i].id);
+ 		img.className = 'image_inactive';
+
+
+
+			if (i+1 <links.length)
+			{
+				//console.log(i+1); 
+				var img1 = document.getElementById(links[i+1].id);
+ 				img1.className = 'image_active';
+ 				return false;
+			}
+
+
+			else
+			{
+ 				var img1 = document.getElementById(links[0].id);
+ 				img1.className = 'image_active';
+ 				return false;
+
+
+
+			}
+
+   	}
+
+
+
+
+	}
+
+
+
+    return false;
+
+
+  }
+
+
+
+
+
+
+function showPrev ()
+{ 
+
+
+var gallery = document.getElementById("div_image");
+var links = gallery.getElementsByTagName("img");
+
+
+
+ for ( var i=0; i < links.length; i++ ) 
+
+  	{
+
+
+
+	var img = document.getElementById(links[i].id);
+ 
+ 	 if (img.className=="image_active")
+   			{
+
+
+			img.className = 'image_inactive';
+
+
+			if (i-1 >0)
+			{ console.log("i-1=");
+				console.log( i-1); 
+				var img1 = document.getElementById(links[i-1].id);
+				console.log(img1.id); 
+ 				img1.className = 'image_active';
+ 				return false;
+			}
+			else
+
+				{
+
+				 var img1 = document.getElementById(links[links.length-1].id);
+				 console.log(img1.id); 
+ 			 	img1.className = 'image_active';
+ 			 	return false;
+				}
+
+
+		
+
+
+			}
+
+
+
+
+	}
+
+
+
+    return false;
+
+}
+   //if (links[i].className=="image_active")
+  // {
+ 		
+		
+		//  var img = document.getElementById(links[i].id);
+ 	// 	img.className = 'image_inactive';
+		// console.log(img1.id); 
+
+
+		// 	if (i-1 >0)
+		// 	{
+		// 		console.log(i-1); 
+		// 		var img1 = document.getElementById(links[i-1].id);
+		// 		console.log(img1.id); 
+ 	// 			img1.className = 'image_active';
+ 	// 			return false;
+		// 	}
+
+
+		// 	// else
+		// 	// {
+ 	// 	// 		var img1 = document.getElementById(links[0].id);
+ 	// 	// 		img1.className = 'image_active';
+ 	// 	// 		return false;
+
+
+
+		// 	// }
+
+  //  	}
+
+
+
+
+
+
+
+function showPicOne(whichPic, links){
+	console.log(whichPic);
+	console.log(links);
+
+    if(links){
+        for ( var i=0; i < links.length; i++ ) {
+
+            links[i].parentNode.className = '';
+            
+        }
+    }
+    whichPic.parentNode.className = 'image_inactive';
+}
+
+
+
+
+
+function drawData(data) {
+  // person 1 bubble
+ console.log(data.images.title);
+
+
+}
+	</script>
+
+</head>
+
+<body > 
+<table width="100%">
+<tr>
+<td align=center width="100%">
+<div class="navigation">
+	<!-- <div class="iframe"> -->
+	<nav>
+		<ul class="iframe">
+			<li  ><a href="index.html" >Home</a></li>
+			<li ><a href="#">Cuisines</a></li>
+
+			<li><a href="recipe.html">Recipes</a></li>
+			<li  ><a href="#">Reviews</a></li>
+			<li ><a href="#">Delivery</a></li>
+			<li ><a href="#" class="li_highligetd">Image Gallery</a></li>
+		</ul>
+	</nav>
+	</div>
+
+</td>
+</tr>
+</table>
+<div id=div_svg>
+
+
+<svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-backward2" viewBox="0 0 32 32">
+<title>backward2</title>
+<path class="path1" d="M18 5v10l10-10v22l-10-10v10l-11-11z"></path>
+</symbol>
+
+<symbol id="icon-forward3" viewBox="0 0 32 32">
+<title>forward3</title>
+<path class="path1" d="M16 27v-10l-10 10v-22l10 10v-10l11 11z"></path>
+</symbol>
+
+</defs>
+</svg>
+</div>
+
+
+
+
+
+<table width="100%">
+<tr>
+<td align=center >
+
+
+<div id="image_gallery" class="wrapper">
+
+<div id="image_scroll" >
+<svg class="icon icon-backward2" onclick="showPrev(); return false;"><use xlink:href="#icon-backward2"></use></svg>
+<svg class="icon icon-forward3" onclick="showNext(); return false;"><use xlink:href="#icon-forward3"></use></svg>
+
+</td>
+</tr>
+<tr>
+<td align=center >
+Click to scroll through gallery
+</td>
+</tr>
+</table>
+</div>
+
+
+
+
+
+<table width="100%">
+<tr>
+<td align=center >
+<div id=div_image class="wrapper" >
+  
+<img src="img/sushi-b.jpg" id="1" class="image_active" >
+<img src="img/sushi-c.jpg" id="2" class="image_inactive" >
+<img src="img/sushi-d.jpg" id="3" class="image_inactive" >
+<img src="img/sushi-e.jpg" id="4" class="image_inactive">
+<img src="img/sushi-f.jpg" id="5" class="image_inactive">
+<img src="img/sushi-g.jpg" id="6" class="image_inactive">
+</div>
+</td>
+</tr>
+</table>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+

@@ -253,5 +253,24 @@ img {
   stroke: currentColor;
   fill: currentColor;
 }
+.active {
+  background-color: red;
+}
+.active a {
+  color: white;
+}
 
+
+
+.image_active {
+  width: 100px;  /* Or whatever */
+  height: 100px; /* Or whatever */
+ display:block;
+}
+
+.image_inactive {
+  width: 100px;  /* Or whatever */
+  height: 100px; /* Or whatever */
+ display:none;
+}
 /*# sourceMappingURL=styles.css.map */
