@@ -1,0 +1,313 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+html, body {
+  color: #333;
+  font-size: 100%;
+  font-family: Comic Sans MS, arial, sans-serif; }
+
+/*:root {
+  --red: #b00;
+  --blue: #0033cc;
+  --fullwidth: 100%;
+  --reddish: #ffcccc;
+  --pink: #ffcccc;
+}*/
+.wrapper {
+  max-width: 67em;
+  margin: 0 auto;
+  position: relative; }
+
+.menu_options {
+  max-width: 67em;
+  margin: 0 auto;
+  position: relative; }
+
+nav {
+  margin-bottom: 1em; }
+
+nav ul {
+  list-style: none; }
+
+nav li {
+  display: inline-block;
+  margin-right: 1em;
+  transition: .3s background-color; }
+
+nav a {
+  color: #b00;
+  text-decoration: none;
+  padding: .5em;
+  display: block;
+  background-color: #ffffcc; }
+
+nav a:hover {
+  color: #0033cc;
+  background-color: #ffcccc; }
+
+.top_list {
+  width: 100%;
+  padding: .5em;
+  border: none;
+  display: inline-block;
+  margin-right: 1em; }
+
+.li_highligetd {
+  background-color: #aa80ff; }
+
+.top_list li {
+  background-color: #aa80ff;
+  transition: .3s background-color;
+  border: 1px solid #b00; }
+
+.top_list ul {
+  width: 100%;
+  padding: .5em;
+  display: inline-block;
+  margin-right: 1em; }
+
+.iframe li {
+  text-align: center;
+  border: 2px solid #9AC460;
+  border-bottom-left-radius: 200px;
+  border-bottom-right-radius: 200px;
+  border-top-right-radius: 200px;
+  box-shadow: 2px 2px 10px #CCC;
+  overflow: hidden;
+  position: relative;
+  width: 150px;
+  transition: all 0.5s ease-in-out 0s; }
+
+.info_small {
+  font-size: 12px; }
+
+.info_small ul {
+  color: #b00;
+  font-size: 10px; }
+
+.titles {
+  padding: .5em;
+  display: block;
+  width: 100%; }
+
+.info {
+  width: 100%;
+  background-color: #aa80ff;
+  padding: .5em;
+  border: none;
+  display: inline-block;
+  margin-right: 1em; }
+
+@media (min-width: 46.25em) {
+  .info {
+    position: absolute;
+    top: 2.5em;
+    left: 0;
+    width: 10em; } }
+
+.info1 {
+  width: 100%;
+  background-color: #aa80ff;
+  padding: .5em;
+  border: none;
+  display: inline-block;
+  margin-right: 1em; }
+
+@media (min-width: 46.25em) {
+  .info1 {
+    position: absolute;
+    top: 5em;
+    left: 0;
+    width: 10em; } }
+
+article {
+  margin-left: 1em; }
+
+@media (min-width: 46.25em) {
+  article {
+    margin: 2em 0 0 12em; } }
+
+.header_class {
+  position: static;
+  width: 100%;
+  color: #b00;
+  text-align: center;
+  line-height: 35px;
+  font-family: Comic Sans MS, arial, sans-serif;
+  padding: .5em;
+  border: none; }
+
+.blockquotesq {
+  width: 100%;
+  padding-top: 5px;
+  float: right;
+  color: #0033cc; }
+
+@media (min-width: 46.25em) {
+  blockquotesq {
+    float: right;
+    width: 40%; } }
+
+.recipe {
+  color: #0033cc; }
+
+blockquote {
+  border: 2px #b00;
+  border-bottom-left-radius: 200px;
+  border-bottom-right-radius: 200px;
+  border-top-right-radius: 200px;
+  box-shadow: 2px 2px 10px #b00;
+  overflow: hidden;
+  padding: 5px;
+  color: #0033cc;
+  font-size: 1.2em;
+  width: 270px;
+  height: 150px;
+  float: right;
+  transition: all 0.5s ease-in-out 0s; }
+
+p {
+  margin: 1em 0; }
+
+ul {
+  list-style: none; }
+
+img {
+  float: right; }
+
+/*nav a:before {
+  padding-left: 1em;
+  content: "Q";
+  }*/
+.p-cuisines .t-cuisines {
+  color: #fff;
+  background: #ffcccc; }
+
+.icon-home:before {
+  content: "\e900"; }
+
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  color: navy;
+  stroke: currentColor;
+  fill: currentColor; }
+
+.active {
+  background-color: red; }
+
+.active a {
+  color: white; }
+
+.image_active {
+  width: 100px;
+  /* Or whatever */
+  height: 100px;
+  /* Or whatever */
+  display: block; }
+
+.image_inactive {
+  width: 100px;
+  /* Or whatever */
+  height: 100px;
+  /* Or whatever */
+  display: none; }
+
+/*# sourceMappingURL=styles.css.map */
+.image_box_flex_child {
+  width: 100px;
+  /* Or whatever */
+  height: 100px;
+  /* Or whatever */
+  margin: auto;
+  /* Magic! */
+  padding: 5px; }
+
+.navigation {
+  display: flex;
+  flex-flow: row wrap;
+  /* This aligns items to the end line on main-axis */
+  justify-content: flex-end; }
+
+/* Medium screens */
+@media all and (max-width: 800px) {
+  .navigation {
+    /* When on medium sized screens, we center it by evenly distributing empty space around items */
+    justify-content: space-around; } }
+
+.images_flex_container {
+  display: flex;
+  flex-flow: row wrap;
+  /* This aligns items to the end line on main-axis */
+  background-color: #333;
+  justify-content: flex-end; }
+
+/* Medium screens */
+@media all and (max-width: 800px) {
+  .images_flex_container {
+    /* When on medium sized screens, we center it by evenly distributing empty space around items */
+    justify-content: space-around; } }
+
+.images_flex_column {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding-left: 10px;
+  flex-flow: column wrap;
+  /* This aligns items to the end line on main-axis */ }
+
+.main-nav {
+  background: #eee;
+  margin-bottom: 1em; }
+  .main-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; }
+  .main-nav li {
+    flex: 1 1 auto; }
+  .main-nav a {
+    padding: .5rem 0.25rem;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: flex-start;
+    color: #ffcccc;
+    background-color: #ffffcc; }
+    .main-nav a:hover, .main-nav a:focus {
+      background-color: #ffcccc;
+      color: #fff; }
+      .main-nav a:hover svg, .main-nav a:focus svg {
+        fill: #fff; }
+      .main-nav a:hover span, .main-nav a:focus span {
+        color: #fff; }
+    @media (min-width: 46.25rem) {
+      .main-nav a {
+        font-size: 1.5rem;
+        padding: 1.25rem 0.5rem; } }
+  .main-nav span {
+    display: none; }
+    @media (min-width: 46.25rem) {
+      .main-nav span {
+        display: block;
+        font-size: 0.875rem;
+        font-weight: normal;
+        color: #888;
+        margin: 0.25rem 0 0 0; } }
+  .main-nav .icon {
+    width: 16px;
+    height: 16px;
+    float: left;
+    margin-right: 0.5rem;
+    fill: #999; }
+    @media (min-width: 46.25rem) {
+      .main-nav .icon {
+        width: 25px;
+        height: 25px; } }
+  .main-nav.outlines * {
+    outline: 1px solid rgba(255, 0, 0, 0.5); }
+
+/*# sourceMappingURL=styles.css.map */
