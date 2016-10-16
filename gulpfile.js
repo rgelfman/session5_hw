@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 
 var sass = require('gulp-sass');
-
+var sftp = require('gulp-sftp');
 var sourcemaps = require('gulp-sourcemaps');
 // var browserSync = require('browser-sync').create();
 
@@ -26,6 +26,29 @@ gulp.task('sass', function(){
 	.pipe(gulp.dest(sassOutput))
 	
 });
+
+
+
+gulp.task('deploy', function() {
+return gulp.src('./app/**/*')
+.pipe(sftp({
+host: 'oit2.scps.nyu.edu',
+user: 'gelfmanr',
+pass: 'rg123890',
+remotePath: '/home/p/gelfmanr/web/'
+}));
+});
+
+
+// gulp.task('deploy', function(){
+// 	return gulp.src('./app/**/*')
+// 	.pipe(sftp({
+// 		host: 'oit2.scps.nyu.edu',
+// 		user: 'pezuaj',
+// 		pass: 'jp123890',
+// 		remotePath: '/home/p/pezuaj/web/dd'
+// 	}));
+// });
 
 
 gulp.task('serve', ['sass'], function(){
