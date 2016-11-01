@@ -14,7 +14,9 @@
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-sass": "^2.3.2",
-    "gulp-sourcemaps": "^1.6.0",
+    "gulp-sftp": "^0.1.5",
+    "gulp-sourcemaps": "^1.8.1",
+    "gulp-ssh": "^0.6.0",
     "sass": "^0.5.0"
   },
   "repository": {

@@ -3,184 +3,177 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Brooklyn Eats: Matsu</title>
+
+	<script src="https://code.angularjs.org/1.5.8/angular.js"></script>
+		<script src="recipies/app-module.js"></script>
+		<script src="recipies/recipe-list.component.js"></script>
+
+
+
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 
-	<link rel="stylesheet" type="text/css href="">
+
 
 </head>
 
+<body class="p-home">
+	<div class="wrapper">
 
-<!-- <table width="100%">
-<tr>
-<td align=center width="100%">
-<div class="images_flex_container">
-  
+		<nav role='navigation' class="main-nav" id="main-nav">
+			<ul id="main-nav-list">
+				<li>
+					<a class="t-home" href="index.html">
+						<svg viewBox="0 0 100 100" class="icon">
+							<use xlink:href="#leaf">
+						</svg>
+						<div>
+							Home
+							<span>for all foodies</span>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a class="t-recipes" href="recipe.html">
+						<svg viewBox="0 0 100 100" class="icon">
+							<use xlink:href="#maple-leaf">
+						</svg>
+						<div>
+							Recipes
+							<span>quick, easy, delicious</span>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a class="t-reviews" href="review.html">
+						<svg viewBox="0 0 100 100" class="icon">
+							<use xlink:href="#clover">
+						</svg>
+						<div>
+							Reviews
+							<span>before you go</span>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a class="t-delivery" href="#">
+						<svg viewBox="0 0 100 100" class="icon">
+							<use xlink:href="#tomato">
+						</svg>
+						<div>
+							Delivery
+							<span>support us</span>
+						</div>
+					</a>
+				</li>
+			</ul>
+		</nav>
 
-<img src="img/sushi-b.jpg" class="image_box_flex_child"  >
-<img src="img/sushi-c.jpg" class="image_box_flex_child" >
+		<header>
+			<h1>Brooklyn Eats</h1>
+			<h2>A Guide to Fine North Brooklyn Dining</h2>
+			<h2>Recipies</h2>
+		</header>
+		<article>
 
 
-<img src="img/sushi-d.jpg"  class="image_box_flex_child" >
-<img src="img/sushi-e.jpg"  class="image_box_flex_child">
-<img src="img/sushi-f.jpg"  class="image_box_flex_child">
-<img src="img/sushi-g.jpg"  class="image_box_flex_child">
+
+
+<!-- 
+<div ng-app="recipeApp" data-ng-controller="RecipeListController">
+
+
+<p>Search list: <input ng-model="searchFor" size="30" /></p>
+
+<ul>
+    <li ng-repeat="recipe in recipes | filter:searchFor | orderBy:'title' ">
+        {{ recipe.description }}
+    </li>
+</ul>
+</div> -->
+
+
+
+<div ng-app="recipeApp">
+<div  ng-controller="ListController">
+
+
+<p>Filter list: <input ng-model="searchFor" size="30" /></p>
+
+
+
+
+
+ <ul>
+
+        <li
+            data-ng-repeat="recipe in recipes | filter:searchFor | orderBy:'title'"
+            ng-hide="([recipe] | filter:searchFor).length =0"
+            ng-show="([recipe] | filter:searchFor).length >0">
+
+<!-- //template -->
+<ul >
+	<li >
+		<img ng-src="img/{{ recipe.image }}" width=100px>
+		<h1><a href="#0">{{ recipe.title }}</a></h1>
+		<p>{{ recipe.description }}</p>
+	</li>
+</ul>
+      
+</li>
+</ul>
+
+
 </div>
-</td>
-</tr>
-</table>
- -->
-
-<body>
-
-</div>
-<br>
-<table width="100%">
-<tr>
-<td align=center width="100%">
-<div class="main-nav">
-	<!-- <div class="iframe"> -->
-	<nav>
-		<ul class="iframe">
-			<li  ><a href="#" class="li_highligetd">Home</a></li>
-			<li ><a href="#">Cuisines</a></li>
-
-			<li><a href="recipe.html">Recipes</a></li>
-			<li  ><a href="#">Reviews</a></li>
-			<li ><a href="#">Delivery</a></li>
-			<li ><a href="gallery.html">Image Gallery</a></li>
-		</ul>
-	</nav>
-	</div>
-
-</td>
-</tr>
-</table>
-<table>
-<tr>
-<td>
-
-
-<svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<defs>
-<symbol id="icon-home" viewBox="0 0 32 32">
-<title>home</title>
-<path class="path1" d="M32 18.451l-16-12.42-16 12.42v-5.064l16-12.42 16 12.42zM28 18v12h-8v-8h-8v8h-8v-12l12-9z"></path>
-</symbol>
-<symbol id="icon-bubble" viewBox="0 0 32 32">
-<title>bubble</title>
-<path class="path1" d="M16 2c8.837 0 16 5.82 16 13s-7.163 13-16 13c-0.849 0-1.682-0.054-2.495-0.158-3.437 3.437-7.539 4.053-11.505 4.144v-0.841c2.142-1.049 4-2.961 4-5.145 0-0.305-0.024-0.604-0.068-0.897-3.619-2.383-5.932-6.024-5.932-10.103 0-7.18 7.163-13 16-13z"></path>
-</symbol>
-<symbol id="icon-bubble2" viewBox="0 0 32 32">
-<title>bubble2</title>
-<path class="path1" d="M16 6c-1.717 0-3.375 0.271-4.928 0.804-1.46 0.502-2.76 1.211-3.863 2.108-2.069 1.681-3.209 3.843-3.209 6.088 0 1.259 0.35 2.481 1.039 3.63 0.711 1.185 1.781 2.268 3.093 3.133 0.949 0.625 1.587 1.623 1.755 2.747 0.056 0.375 0.091 0.753 0.105 1.129 0.233-0.194 0.461-0.401 0.684-0.624 0.755-0.755 1.774-1.172 2.828-1.172 0.168 0 0.336 0.011 0.505 0.032 0.655 0.083 1.325 0.126 1.99 0.126 1.717 0 3.375-0.271 4.928-0.804 1.46-0.502 2.76-1.211 3.863-2.108 2.069-1.681 3.209-3.843 3.209-6.088s-1.14-4.407-3.209-6.088c-1.104-0.897-2.404-1.606-3.863-2.108-1.553-0.534-3.211-0.804-4.928-0.804zM16 2v0c8.837 0 16 5.82 16 13s-7.163 13-16 13c-0.849 0-1.682-0.054-2.495-0.158-3.437 3.437-7.539 4.053-11.505 4.144v-0.841c2.142-1.049 4-2.961 4-5.145 0-0.305-0.024-0.604-0.068-0.897-3.619-2.383-5.932-6.024-5.932-10.103 0-7.18 7.163-13 16-13z"></path>
-</symbol>
-<symbol id="icon-facebook2" viewBox="0 0 32 32">
-<title>facebook2</title>
-<path class="path1" d="M29 0h-26c-1.65 0-3 1.35-3 3v26c0 1.65 1.35 3 3 3h13v-14h-4v-4h4v-2c0-3.306 2.694-6 6-6h4v4h-4c-1.1 0-2 0.9-2 2v2h6l-1 4h-5v14h9c1.65 0 3-1.35 3-3v-26c0-1.65-1.35-3-3-3z"></path>
-</symbol>
-<symbol id="icon-twitter" viewBox="0 0 32 32">
-<title>twitter</title>
-<path class="path1" d="M32 7.075c-1.175 0.525-2.444 0.875-3.769 1.031 1.356-0.813 2.394-2.1 2.887-3.631-1.269 0.75-2.675 1.3-4.169 1.594-1.2-1.275-2.906-2.069-4.794-2.069-3.625 0-6.563 2.938-6.563 6.563 0 0.512 0.056 1.012 0.169 1.494-5.456-0.275-10.294-2.888-13.531-6.862-0.563 0.969-0.887 2.1-0.887 3.3 0 2.275 1.156 4.287 2.919 5.463-1.075-0.031-2.087-0.331-2.975-0.819 0 0.025 0 0.056 0 0.081 0 3.181 2.263 5.838 5.269 6.437-0.55 0.15-1.131 0.231-1.731 0.231-0.425 0-0.831-0.044-1.237-0.119 0.838 2.606 3.263 4.506 6.131 4.563-2.25 1.762-5.075 2.813-8.156 2.813-0.531 0-1.050-0.031-1.569-0.094 2.913 1.869 6.362 2.95 10.069 2.95 12.075 0 18.681-10.006 18.681-18.681 0-0.287-0.006-0.569-0.019-0.85 1.281-0.919 2.394-2.075 3.275-3.394z"></path>
-</symbol>
-<symbol id="icon-pinterest" viewBox="0 0 32 32">
-<title>pinterest</title>
-<path class="path1" d="M16 2.138c-7.656 0-13.863 6.206-13.863 13.863 0 5.875 3.656 10.887 8.813 12.906-0.119-1.094-0.231-2.781 0.050-3.975 0.25-1.081 1.625-6.887 1.625-6.887s-0.412-0.831-0.412-2.056c0-1.925 1.119-3.369 2.506-3.369 1.181 0 1.756 0.887 1.756 1.95 0 1.188-0.756 2.969-1.15 4.613-0.331 1.381 0.688 2.506 2.050 2.506 2.462 0 4.356-2.6 4.356-6.35 0-3.319-2.387-5.638-5.787-5.638-3.944 0-6.256 2.956-6.256 6.019 0 1.194 0.456 2.469 1.031 3.163 0.113 0.137 0.131 0.256 0.094 0.4-0.106 0.438-0.338 1.381-0.387 1.575-0.063 0.256-0.2 0.306-0.463 0.188-1.731-0.806-2.813-3.337-2.813-5.369 0-4.375 3.175-8.387 9.156-8.387 4.806 0 8.544 3.425 8.544 8.006 0 4.775-3.012 8.625-7.194 8.625-1.406 0-2.725-0.731-3.175-1.594 0 0-0.694 2.644-0.863 3.294-0.313 1.206-1.156 2.712-1.725 3.631 1.3 0.4 2.675 0.619 4.106 0.619 7.656 0 13.863-6.206 13.863-13.863 0-7.662-6.206-13.869-13.863-13.869z"></path>
-</symbol>
-</defs>
-</svg>
+<BR>
 
 
 
 
 
-</td>
-<tr>
-</table>
 
-<div class="wrapper">
-
-<div class="header_class">
-<table width="100%">
-<tr>
-<td align=center width="100%">
-<div class="header_class">
-    <header>
-	    <h1>Brooklyn Eats</h1>
-	    <h2>A Guide to Fine North Brooklyn Dining</h2>
-    </header>
-
-
-</td>
-</tr>
-</table>
-
-
+<!-- 
+<div ng-hide="([recipe] | filter:searchFor).length = 0">
+	<recipe-list  	ng-show="([recipe] | filter:searchFor).length > 0"></recipe-list>
 	
-<div class="info">
-		<h2>Matsu</h2>
-		
-		<p><strong>Bottom Line:</strong> Friendly, cozy, and oh so tasty</p>
-<div class =info_small>
-		<table>
-			<tbody>
-				<tr>
-					<th>Cuisine:</th>
-					<td>Japanese</td>
-				</tr>
-				<tr>
-					<th>Cost:</th>
-					<td>$$ - $$$</td>
-				</tr>
-				<tr>
-					<th>Region:</th>
-					<td>Park Slope</td>
-				</tr>
-			</tbody>
-		</table>
-</div>
-<br>
-<div class =info_small>
-		<ul>
-			<li>Matsu</li>
-			<li>1258 Flatbush Avenue</li>
-			<li>Brooklyn, NY 11238</li>
-			<li><a href="#">Map</a> | <a href="#">Directions</a></li>
-			<li>(718) 767-1111</li>
-			<li><a href="#">Web site</a></li>
-		</ul>
-</div>
-<br>
-
-<svg class="icon icon-home"><use xlink:href="#icon-home"></use></svg>
-<svg class="icon icon-home"><use xlink:href="#icon-bubble"></use></svg>
-<svg class="icon icon-home"><use xlink:href="#icon-twitter"></use></svg>
-<svg class="icon icon-home"><use xlink:href="#icon-facebook2"></use></svg>
-<svg class="icon icon-home"><use xlink:href="#icon-pinterest"></use></svg>
-</div>
-</div>
-<div class="wrapper">
-
-<article>
-		<p>If there's one <a href="#">Asian cuisine</a> we truly love, it's sushi (although dim sum comes a close second). Prepared correctly, sushi can be a work of sublime art to both the eyes and the tongue. There's nothing quite like the taste of a fresh piece of suzuki (sea bass) or salmon artfully combined with special rice and a hint of wasabi (Japanese horseradish). "Fresh fish in Brooklyn?" we hear you asking. Absolutely. There are several very good sushi restaurants in the area, but for our money, Matsu is at the head of the pack. <em>It's so good, it beats out most of the Brooklyn sushi places we've tried.</em></p>
-
-<div class="blockquitesq">
+	</div> -->
+</BR>
 
 
-		<blockquote> It's so good, it beats out most of the Brooklyn sushi places we've tried.</blockquote>
-</div>
-		<p>On a recent visit, we checked out the specials and were delighted to see that escolar, a mild white fish, was available. The toro, on the other had, was sold out, so we had to put it off until another time. We ordered a sampling of nigiri (escolar, alabacore, suzuki, and smoked salmon), a couple of maki rolls, two bowls of miso soup, and gyoza (small dumplings steamed and then pan-fried). While we waited, we took a look around at the small dining room, which can seat about 30 people without making them feel at all cramped; another ten or so seats are available at the sushi bar along one side of the dining room. Between the intimate feel of the room and its subtle decoration, we felt comfortable right away.</p>
 
-		<p>The miso came out first, and was quite good, hot and pungent, perfect for a cool evening or whenever you're feeling under the weather. The gyoza followed soon thereafter, and were nicely prepared, warm and soft without being too greasy or mushy. The meal really got underway, though, when our sushi arrived. Each nigiri portion featured a generous slice of fish on top of perfectly-sized rice ball, hand-made and formed by the chefs. One of the keys to nigiri is the wasabi smear between the rice and fish: too much, and it overpowers everything else; too little, and the tastes feel bland. Happily, every one of our nigiri pieces had exactly the right amount of wasabi to add a subtle zing to every mouthful. The maki rolls were also nicely prepared, with an appropriate balance of ingredients.</p>
 
-	
-
-		<p>For dessert, we decided to order strawberry mochi balls, which are small spheres of ice cream surrounded by a glutinous rice coating. Our order came out with the balls cut in half, which was a particularly nice touch since it made the dish easier to share. We ended the evening with some sweet sake recommended to us by our server—a perfect note to close out the meal.</p>
-
-		<p>Husband-and-wife team Scott and Brenda Kim, who opened up Matsu in late 2000, are there almost every day of the week and help make every customer feel at home. When we returned on a later night, we were immediately recognized and greeted almost like family. The servers generally keep a close eye on the tables, which is one benefit of the limited seating. Scott is often behind the sushi bar, tending to orders himself, or else in the kitchen doing the same. Brenda, as hostess, oversees the servers and seating with efficiency and charm.</p>
-
-		<p>If you're looking for a good Japanese experience but can't foot the bill for a flight to Tokyo, then Matsu is an excellent backup plan. We'll be back again soon.</p>
-	</article>
-	</div>
-</div>
-</body>
-</html>
+	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px"
+		width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve" class="hidden">
+		<defs>
+			<path id="leaf" d="M51.151-1.011c0,0-32.454,50.827-32.454,71.676c0,20.857,17.35,27.692,32.454,27.692
+				c15.099,0,33.121-8.644,33.121-27.692C84.272,51.621,51.151-1.011,51.151-1.011z M68.621,69.877L53.538,87.741
+				c-0.312,0.37-0.717,0.586-1.147,0.725c-0.105,0.039-0.217,0.044-0.322,0.068c-0.155,0.031-0.296,0.099-0.45,0.099
+				c-0.017,0-0.035-0.009-0.053-0.009s-0.036,0.009-0.052,0.009c0,0,0,0-0.003,0c-0.241,0-0.458-0.073-0.678-0.137
+				c-0.021-0.007-0.042-0.006-0.064-0.015c-0.089-0.027-0.182-0.031-0.264-0.07c-0.082-0.033-0.141-0.1-0.218-0.143
+				c-0.228-0.133-0.441-0.277-0.618-0.471c-0.024-0.024-0.056-0.03-0.078-0.057L34.515,69.876c-0.896-1.059-0.763-2.644,0.297-3.538
+				c1.063-0.893,2.644-0.764,3.535,0.298l10.65,12.619V63.301c-0.019-0.021-0.045-0.026-0.062-0.047l-9.951-11.802
+				c-0.893-1.059-0.758-2.642,0.303-3.537c1.055-0.899,2.639-0.759,3.535,0.302l6.174,7.322V43.225l-6.062-7.185
+				c-0.892-1.058-0.759-2.645,0.299-3.538c1.06-0.896,2.646-0.76,3.538,0.299l2.228,2.643V22.479c0-1.386,1.125-2.51,2.511-2.51
+				c1.387,0,2.511,1.124,2.511,2.51v13.097l2.345-2.776c0.891-1.056,2.471-1.188,3.535-0.299c1.059,0.893,1.194,2.48,0.297,3.538
+				l-6.18,7.321v12.315L60.3,48.22c0.892-1.057,2.475-1.203,3.536-0.302c1.059,0.895,1.195,2.475,0.301,3.537l-9.941,11.802
+				c-0.049,0.06-0.124,0.081-0.179,0.137V79.39l10.766-12.749c0.895-1.059,2.475-1.188,3.536-0.3
+				C69.38,67.233,69.514,68.817,68.621,69.877z" />
+			<path id="maple-leaf" d="M49.994,0.106l-9.212,16.331c-0.193,0.281-0.506,0.474-0.831,0.474c-0.168,0-10.004-5.422-10.004-5.422l5.86,25.626   c0.047,0.131,0.047,0.241,0.047,0.373c0,0.927-0.762,1.656-1.652,1.656c-0.46,0-0.88-0.193-1.175-0.47L22.591,26.55l-3.994,7.082   c-0.216,0.258-0.559,0.481-0.938,0.481c-0.055,0-13.094-2.558-13.094-2.558s4.448,14.068,4.448,14.207   c0,0.445-0.252,0.842-0.621,1.058l-5.516,3.159l23.912,19.013c0.222,0.226,0.343,0.521,0.343,0.846   c0,0.157-2.521,9.946-2.521,9.946s21.094-4.368,21.189-4.368c0.789,0,1.456,0.679,1.456,1.485l-0.438,22.992h6.358l-0.397-22.992   c0-0.807,0.639-1.485,1.445-1.485c0.084,0,21.176,4.368,21.176,4.368s-2.54-9.789-2.54-9.946c0-0.324,0.139-0.62,0.354-0.846   l23.911-19.013l-5.513-3.159c-0.372-0.216-0.613-0.613-0.613-1.058c0-0.139,4.44-14.207,4.44-14.207s-13.021,2.558-13.068,2.558   c-0.42,0-0.733-0.223-0.964-0.481l-3.995-7.082l-10.42,12.124c-0.32,0.277-0.722,0.47-1.185,0.47c-0.898,0-1.66-0.729-1.66-1.656   c0-0.131,5.913-25.999,5.913-25.999s-9.832,5.422-9.989,5.422c-0.343,0-0.667-0.193-0.835-0.474L49.994,0.106"
+			/>
+			<path id="clover" d="M52.564,62.877c-0.01-0.004-0.022-0.007-0.033-0.007c-0.682,0-1.333,1.271-2.175,2.532
+				c-1.432,2.154-2.518,4.201-3.375,5.994c-1.606,3.379-2.454,7.078-2.571,10.816c-0.084,2.624,0.493,5.286,0.888,7.913
+				c0.384,2.55-0.195,3.538-2.71,4.031c-0.806,0.155-1.64,0.219-2.464,0.226c-1.715,0.014-2.83-0.836-2.938-2.576
+				c-0.13-2.082-0.211-4.188-0.081-6.268c0.348-5.428,1.451-10.036,3.452-15.096c0.699-1.774,2.277-4.67,3.873-7.327
+				c0.702-1.167,0.465-2.755-0.977-1.876c-2.388,1.453-10.571,10.244-22.978,10.244c-10.382,0-17.979-6.151-17.979-21.112
+				c0-9.439,2.07-21.409,13.522-17.901c3.766,1.154,15.186,9.327,16.594,8.178c1.408-1.147-13.243-10.08-13.243-19.517
+				c0-9.665,8.519-17.116,22.948-18.556C54.75,1.337,64.188,6.171,62.323,18.99c-1.232,8.457-2.271,17.223-0.056,13.074
+				c2.199-4.115,2.393-9.143,4.49-13.367c3.624-7.297,10.061-8.714,16.902-5.57c11.213,5.15,22.654,31.718,7.453,37.01
+				c-4.805,1.669-17.176,2.302-17.176,3.693c0,1.88,17.721,0.954,18.479,15.271c0.354,6.658-4.061,21.006-20.173,21.32
+				c-11.739,0.23-18.538-10.857-18.528-21.529C53.718,68.092,53.908,63.132,52.564,62.877z" />
+			<path id="tomato" d="M82.14,36.684c0.723,0.353,1.437,0.728,2.13,1.134c-9.694-11.897-22.107-8.52-22.107-8.52s6.783-11.083,14.372-16.477
+				c-9.056,0.323-15.593,10.052-15.593,10.052s-1.568,1.683-1.668-0.187c-0.676-12.651,3.465-17.498,5.121-19.333
+				c1.387-1.54,2.938-0.772,2.938-0.772s-5.946-2.934-9.978,7.749c-3.533,9.362-4.412,18.487-4.412,18.487s-10.231-10.072-21.353-10.02
+				c9.693,5.264,13.421,8.04,13.421,11.61c-14.358-4.443-27.525,5.428-26.746,5.164c0.051-0.018,0.099-0.032,0.149-0.049
+				C6.818,43.643,2.426,59.371,5.986,73.754C9.109,86.367,17.562,105.753,52.6,96.462c31.076,8.365,39.646-5.174,42.771-22.708
+				C98.141,55.556,91.927,43.342,82.14,36.684z" />
+		</defs>
+	</svg>
